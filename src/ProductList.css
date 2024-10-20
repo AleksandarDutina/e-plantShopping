@@ -188,6 +188,12 @@ body {
 
     
 }
+
+.totalCount{
+    position : relative;
+    left : 45px;
+}
+
 /* Add Media Query for responsiveness */
 @media (max-width: 768px) {
     .product-card {

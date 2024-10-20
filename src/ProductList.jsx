@@ -8,6 +8,7 @@ function ProductList() {
   const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
   const [addedToCart, setAddedToCart] = useState({});
   const dispatch = useDispatch(); 
+  const cart = useSelector(state => state.cart.items);
   const plantsArray = [
     {
       category: "Air Purifying Plants",
@@ -269,6 +270,9 @@ function ProductList() {
     color: "white",
     fontSize: "30px",
     textDecoration: "none",
+    display : 'flex',
+    alignItems : 'center',
+    justifyContent : 'center',
   };
   const handleCartClick = (e) => {
     e.preventDefault();
@@ -302,7 +306,7 @@ function ProductList() {
               src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png"
               alt=""
             />
-            <a href="/" style={{ textDecoration: "none" }}>
+            <a href="#" style={{ textDecoration: "none" }}>
               <div>
                 <h3 style={{ color: "white" }}>Paradise Nursery</h3>
                 <i style={{ color: "white" }}>Where Green Meets Serenity</i>
@@ -318,8 +322,9 @@ function ProductList() {
             </a>
           </div>
           <div>
-            {" "}
+            
             <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
+                <h4 class = 'totalCount'>{cart.length}</h4>
               <h1 className="cart">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -328,7 +333,9 @@ function ProductList() {
                   height="68"
                   width="68"
                 >
-                  <rect width="156" height="156" fill="none"></rect>
+                  <rect width="156" height="156" fill="none">
+
+                  </rect>
                   <circle cx="80" cy="216" r="12"></circle>
                   <circle cx="184" cy="216" r="12"></circle>
                   <path
@@ -339,8 +346,12 @@ function ProductList() {
                     stroke-linejoin="round"
                     stroke-width="2"
                     id="mainIconPathAttribute"
-                  ></path>
+                  >
+                    
+                  </path>
+                  
                 </svg>
+                
               </h1>
             </a>
           </div>
